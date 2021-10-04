@@ -2,7 +2,7 @@
 
 #### Soothing Music App for sleeping
 
-![Project Image](/images/pitterpatter.png)
+![Project Image](public/images/pitterpatter.png)
 <br>
 <br>
 <br>
