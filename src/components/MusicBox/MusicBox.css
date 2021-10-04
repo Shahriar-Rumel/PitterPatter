@@ -1,0 +1,106 @@
+.musicBox {
+  background-color: var(--secondary-bgColor);
+  height: 400px;
+  width: 90%;
+  margin-left: 40px;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.musicBoxImage {
+  background-color: var(--deep-bgColor);
+  height: 280px;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.TrackSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.TrackName {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: var(--Primary-Color);
+  font-size: 16px;
+}
+.TrackArtist {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  color: var(--secondary-Color);
+  font-size: 13px;
+}
+.buttonSection {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.PlayPrev {
+  transform: rotate(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.PlayPrevButton {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.PlayPrevButtonIcon {
+  transform: scale(1.8);
+  color: var(--secondary-Color);
+}
+
+.Play {
+  background-color: var(--deep-bgColor);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.PlayButton {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  margin-top: 3px;
+}
+.PlayButtonIcon {
+  transform: scale(1.4);
+  color: var(--secondary-bgColor);
+}
+.PlayNext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.PlayNextButton {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.PlayNextButtonIcon {
+  transform: scale(1.8);
+  color: var(--secondary-Color);
+}
+
+@media only screen and (min-width: 450px) {
+  .musicBox {
+    background-color: var(--secondary-bgColor);
+    height: 400px;
+    width: 400px;
+    margin-left: 40px;
+    border-radius: 5px;
+    position: relative;
+  }
+}

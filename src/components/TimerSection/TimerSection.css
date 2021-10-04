@@ -1,0 +1,68 @@
+.timerSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 35px;
+}
+.TimerCircle {
+  height: 100px;
+  width: 100px;
+  background-color: var(--secondary-bgColor);
+  color: var(--secondary-Color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+.timer {
+  font-size: 30px;
+  position: absolute;
+}
+.min {
+  position: absolute;
+  margin-top: 55px;
+  font-size: 18px;
+}
+.timerButton {
+  border-radius: 5px;
+  border: 0;
+  font-family: 'Noto Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 900;
+  width: 70px;
+  padding: 8px 0px;
+  margin-top: 10px;
+  font-size: 12px;
+  background-color: var(--Primary-Color);
+  color: var(--secondary-bgColor);
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.timerButton::selection {
+  background-color: var(--hover-bgColor);
+  transform: scale(0.9);
+}
+input {
+  border: 0;
+  width: 95px;
+  height: 30px;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 900;
+  color: var(--Primary-Color);
+  background-color: transparent;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+input:focus {
+  outline: none;
+}
+.timerButton:hover {
+  background-color: var(--hover-bgColor);
+  transform: scale(0.9);
+}
