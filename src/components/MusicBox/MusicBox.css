@@ -173,7 +173,7 @@ select option:hover {
   border-radius: 5px;
 }
 .Volume {
-  margin-left: 50%;
+  margin-left: 45%;
   transform: translateX(-50%);
   margin-bottom: 50px;
 }
@@ -188,5 +188,10 @@ select option:hover {
   }
   .musicBoxDark {
     width: 400px;
+  }
+  .Volume {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 50px;
   }
 }

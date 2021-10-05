@@ -14,6 +14,10 @@ export default function MusicBox({
 
   const [isPlaying, setPlaying] = useState(false);
   const [volume, setVolume] = useState(5);
+
+  const [timer, setTimer] = useState(10);
+  const [showTimer, setShowTimer] = useState(false);
+
   useEffect(() => {
     Lottie.loadAnimation({
       container: musicBoxImage.current,
@@ -24,12 +28,37 @@ export default function MusicBox({
     });
   }, [musicBoxImage]);
 
+  useInterval(() => {
+    setTimer(timer - 1);
+  }, 60000);
+
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying && timer) {
       trackAudio.current.play();
-      trackAudio.current.volume *= volume / 10;
     } else {
       trackAudio.current.pause();
+    }
+
+    if (volume > 5) {
+      trackAudio.current.volume *= volume / 10;
     }
   }, [
     trackAudio,
@@ -37,7 +66,17 @@ export default function MusicBox({
     setCurrentTrackIndex,
     currentTrackIndex,
     setVolume,
-    volume
+    volume,
+    timer
+  ]);
+
+  useEffect(() => {}, [
+    setPlaying,
+    isPlaying,
+    isDarkMode,
+    timer,
+    setTimer,
+    showTimer
   ]);
 
   const skipTrack = (forward = true) => {
@@ -68,6 +107,8 @@ export default function MusicBox({
         setPlaying={setPlaying}
         isPlaying={isPlaying}
         isDarkMode={isDarkMode}
+        timer={timer}
+        setTimer={setTimer}
       />
       <div className={isDarkMode ? 'musicBoxDark' : 'musicBox'}>
         <div
