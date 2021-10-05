@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TimerSection.css';
 
-export default function TimerSection({ setPlaying, isPlaying }) {
+export default function TimerSection({ setPlaying, isPlaying, isDarkMode }) {
   const [timer, setTimer] = useState(0);
   const [showTimer, setShowTimer] = useState(0);
   let endTime, CurrentTime;
@@ -18,14 +18,22 @@ export default function TimerSection({ setPlaying, isPlaying }) {
     if (endTime - CurrentTime >= timer * 6000) {
       setPlaying(!isPlaying);
     }
-  }, [showTimer, CurrentTime, endTime, timer, setPlaying, isPlaying]);
+  }, [
+    showTimer,
+    CurrentTime,
+    endTime,
+    timer,
+    setPlaying,
+    isPlaying,
+    isDarkMode
+  ]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowTimer(timer);
   };
   return (
     <div className="timerSection">
-      <div className="TimerCircle">
+      <div className={isDarkMode ? 'TimerCircleDark' : 'TimerCircle'}>
         <h1 className="timer">{showTimer}</h1>
         <h1 className="min">min</h1>
       </div>
@@ -37,8 +45,11 @@ export default function TimerSection({ setPlaying, isPlaying }) {
           onChange={(e) => {
             setTimer(e.target.value);
           }}
+          className={isDarkMode ? 'inputDark' : 'input'}
         ></input>
-        <button className="timerButton">timer</button>
+        <button className={isDarkMode ? 'timeButtonDark' : 'timerButton'}>
+          timer
+        </button>
       </form>
     </div>
   );

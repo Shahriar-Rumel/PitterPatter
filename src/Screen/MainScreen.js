@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import UserInteractionSection from '../components/UserInteractionSection/UserInteractionSection';
 import './mainScreen.css';
 
-export default function MainScreen() {
+export default function MainScreen({ isDarkMode }) {
   const [tracks] = useState([
     {
       id: 1,
@@ -42,7 +42,7 @@ export default function MainScreen() {
   }, [currentTrackIndex, tracks.length]);
   return (
     <div className="Main">
-      <p className="SectionHeader">
+      <p className={isDarkMode ? 'SectionHeaderDark' : 'SectionHeader'}>
         Soothing music for you to sleep peacefully at night or whenever you
         prefer to do so.Choose any track and you can also set the timer to auto
         pause the music.Larger tracks may take a few mniutes to load depending
@@ -53,6 +53,7 @@ export default function MainScreen() {
         setCurrentTrackIndex={setCurrentTrackIndex}
         nextTrackIndex={nextTrackIndex}
         tracks={tracks}
+        isDarkMode={isDarkMode}
       />
     </div>
   );

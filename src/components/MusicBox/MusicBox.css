@@ -9,8 +9,26 @@
   margin-top: 20px;
   margin-bottom: 30px;
 }
+.musicBoxDark {
+  background-color: var(--dark-primary-color);
+  height: 400px;
+  width: 90%;
+  margin-left: 40px;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 .musicBoxImage {
   background-color: var(--deep-bgColor);
+  height: 280px;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.musicBoxImageDark {
+  background-color: var(--dark-secondary-color);
   height: 280px;
   width: 100%;
   border-top-left-radius: 5px;
@@ -29,10 +47,22 @@
   color: var(--Primary-Color);
   font-size: 16px;
 }
+.TrackNameDark {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: var(--dark-bgcolor);
+  font-size: 16px;
+}
 .TrackArtist {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
   color: var(--secondary-Color);
+  font-size: 13px;
+}
+.TrackArtistDark {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  color: var(--dark-secondary-color);
   font-size: 13px;
 }
 .buttonSection {
@@ -59,9 +89,22 @@
   transform: scale(1.8);
   color: var(--secondary-Color);
 }
+.PlayPrevButtonIconDark {
+  transform: scale(1.8);
+  color: var(--dark-bgcolor);
+}
 
 .Play {
   background-color: var(--deep-bgColor);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.PlayDark {
+  background-color: var(--dark-bgcolor);
   height: 40px;
   width: 40px;
   display: flex;
@@ -79,6 +122,10 @@
   transform: scale(1.4);
   color: var(--secondary-bgColor);
 }
+.PlayButtonIconDark {
+  transform: scale(1.4);
+  color: var(--dark-primary-color);
+}
 .PlayNext {
   display: flex;
   align-items: center;
@@ -93,7 +140,43 @@
   transform: scale(1.8);
   color: var(--secondary-Color);
 }
-
+.PlayNextButtonIconDark {
+  transform: scale(1.8);
+  color: var(--dark-bgcolor);
+}
+select {
+  margin: 40px;
+  border: 0;
+  background: var(--dark-bgcolor);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  padding: 5px 5px;
+  border-radius: 5px;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+select:focus {
+  outline: none;
+}
+select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+select option:hover {
+  margin: 40px;
+  background: var(--dark-secondary-color);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+.Volume {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 50px;
+}
 @media only screen and (min-width: 450px) {
   .musicBox {
     background-color: var(--secondary-bgColor);
@@ -102,5 +185,8 @@
     margin-left: 40px;
     border-radius: 5px;
     position: relative;
+  }
+  .musicBoxDark {
+    width: 400px;
   }
 }

@@ -9,6 +9,17 @@
   margin-left: 50%;
   transform: translateX(-50%);
 }
+.SectionHeaderDark {
+  font-family: 'Noto Sans', sans-serif;
+  color: var(--dark-secondary-color);
+  font-size: 12px;
+  text-align: left;
+  width: 90%;
+  margin-top: 100px;
+  font-weight: 600;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 @media only screen and (min-width: 900px) {
   .SectionHeader {
     width: 75%;

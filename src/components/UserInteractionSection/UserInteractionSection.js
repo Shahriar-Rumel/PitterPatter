@@ -8,7 +8,8 @@ export default function UserInteractionSection({
   currentTrackIndex,
   setCurrentTrackIndex,
   nextTrackIndex,
-  tracks
+  tracks,
+  isDarkMode
 }) {
   return (
     <div className="UserInteractionSection">
@@ -16,8 +17,13 @@ export default function UserInteractionSection({
         tracks={tracks}
         currentTrackIndex={currentTrackIndex}
         setCurrentTrackIndex={setCurrentTrackIndex}
+        isDarkMode={isDarkMode}
       />
-      <TrackList tracks={tracks} setCurrentTrackIndex={setCurrentTrackIndex} />
+      <TrackList
+        tracks={tracks}
+        setCurrentTrackIndex={setCurrentTrackIndex}
+        isDarkMode={isDarkMode}
+      />
     </div>
   );
 }

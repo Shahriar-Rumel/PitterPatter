@@ -10,3 +10,15 @@
   font-weight: 600;
   color: var(--secondary-Color);
 }
+.footerDark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  margin-top: 60px;
+  border-top: 1px solid var(--dark-secondary-color);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark-primary-color);
+}

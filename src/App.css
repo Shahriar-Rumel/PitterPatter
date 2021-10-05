@@ -1,10 +1,46 @@
 #root,
 body {
-  background-color: var(--bgColor);
   --bgColor: #c1f5c6;
+  --dark-bgcolor: #161133;
+  --dark-primary-color: #bbb8cc;
+  --dark-secondary-color: #8c8a99;
   --Primary-Color: #404c41;
   --secondary-Color: #6b7f6d;
   --secondary-bgColor: #d2fbd6;
   --hover-bgColor: #4b594c;
   --deep-bgColor: #addbb1;
+  padding: 0;
+  margin: 0;
+}
+.light {
+  background-color: var(--bgColor);
+}
+.dark {
+  background-color: var(--dark-bgcolor);
+}
+.modeToggle {
+  padding-top: 80px;
+  position: absolute;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.modeToggleButton {
+  border: 0;
+  padding: 10px 0px;
+  width: 100px;
+  border-radius: 5px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.light .modeToggleButton {
+  background-color: var(--Primary-Color);
+  color: var(--dark-primary-color);
+}
+.dark .modeToggleButton {
+  background-color: var(--dark-primary-color);
+  color: var(--dark-bgcolor);
 }

@@ -6,13 +6,14 @@ import TimerSection from '../TimerSection/TimerSection';
 export default function MusicBox({
   tracks,
   currentTrackIndex,
-  setCurrentTrackIndex
+  setCurrentTrackIndex,
+  isDarkMode
 }) {
   const musicBoxImage = useRef(null);
   const trackAudio = useRef(null);
 
   const [isPlaying, setPlaying] = useState(false);
-
+  const [volume, setVolume] = useState(5);
   useEffect(() => {
     Lottie.loadAnimation({
       container: musicBoxImage.current,
@@ -26,11 +27,18 @@ export default function MusicBox({
   useEffect(() => {
     if (isPlaying) {
       trackAudio.current.play();
-      trackAudio.current.volume = 0.4;
+      trackAudio.current.volume *= volume / 10;
     } else {
       trackAudio.current.pause();
     }
-  }, [trackAudio, isPlaying, setCurrentTrackIndex, currentTrackIndex]);
+  }, [
+    trackAudio,
+    isPlaying,
+    setCurrentTrackIndex,
+    currentTrackIndex,
+    setVolume,
+    volume
+  ]);
 
   const skipTrack = (forward = true) => {
     if (forward) {
@@ -56,12 +64,23 @@ export default function MusicBox({
 
   return (
     <>
-      <TimerSection setPlaying={setPlaying} isPlaying={isPlaying} />
-      <div className="musicBox">
-        <div className="musicBoxImage" ref={musicBoxImage}></div>
+      <TimerSection
+        setPlaying={setPlaying}
+        isPlaying={isPlaying}
+        isDarkMode={isDarkMode}
+      />
+      <div className={isDarkMode ? 'musicBoxDark' : 'musicBox'}>
+        <div
+          className={isDarkMode ? 'musicBoxImageDark' : 'musicBoxImage'}
+          ref={musicBoxImage}
+        ></div>
         <div className="TrackSection">
-          <div className="TrackName">{tracks[currentTrackIndex].trackName}</div>
-          <div className="TrackArtist">{tracks[currentTrackIndex].artist}</div>
+          <div className={isDarkMode ? 'TrackNameDark' : 'TrackName'}>
+            {tracks[currentTrackIndex].trackName}
+          </div>
+          <div className={isDarkMode ? 'TrackArtistDark' : 'TrackArtist'}>
+            {tracks[currentTrackIndex].artist}
+          </div>
         </div>
         <div className="buttonSection">
           <div className="PlayPrev">
@@ -71,19 +90,35 @@ export default function MusicBox({
                 skipTrack(false);
               }}
             >
-              <PlayArrow className="PlayPrevButtonIcon" />
+              <PlayArrow
+                className={
+                  isDarkMode ? 'PlayPrevButtonIconDark' : 'PlayPrevButtonIcon'
+                }
+              />
             </button>
           </div>
           <audio src={tracks[currentTrackIndex].src} ref={trackAudio}></audio>
-          <div className="Play">
+          <div className={isDarkMode ? 'PlayDark' : 'Play'}>
             <button
               className="PlayButton"
               onClick={() => {
                 setPlaying(!isPlaying);
               }}
             >
-              {isPlaying && <Pause className="PlayButtonIcon" />}
-              {!isPlaying && <PlayArrow className="PlayButtonIcon" />}
+              {isPlaying && (
+                <Pause
+                  className={
+                    isDarkMode ? 'PlayButtonIconDark' : 'PlayButtonIcon'
+                  }
+                />
+              )}
+              {!isPlaying && (
+                <PlayArrow
+                  className={
+                    isDarkMode ? 'PlayButtonIconDark' : 'PlayButtonIcon'
+                  }
+                />
+              )}
             </button>
           </div>
           <div className="PlayNext">
@@ -93,9 +128,21 @@ export default function MusicBox({
                 skipTrack();
               }}
             >
-              <PlayArrow className="PlayNextButtonIcon" />
+              <PlayArrow
+                className={
+                  isDarkMode ? 'PlayNextButtonIconDark' : 'PlayNextButtonIcon'
+                }
+              />
             </button>
           </div>
+        </div>
+        <div className="Volume">
+          <select onChange={(e) => setVolume(e.target.value)}>
+            <option value={volume}>Volume Level</option>
+            <option value={volume}>1</option>
+            <option value={volume}>5</option>
+            <option value={volume}>10</option>
+          </select>
         </div>
       </div>
     </>

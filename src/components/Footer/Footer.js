@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css';
 
-export default function Footer() {
+export default function Footer({ isDarkMode }) {
   return (
-    <div className="footer">
+    <div className={isDarkMode ? 'footerDark' : 'footer'}>
       {'©'} Shahriar Rumel {new Date().getFullYear()}
     </div>
   );
